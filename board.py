@@ -115,7 +115,7 @@ class Board:
                 for col in range(COLS):
                     print(''.join(str(player_board_view[row][col])), end=' '*2, flush=True)
                     if len(shoot_highlight) == 2 and row == shoot_highlight[0] and col == shoot_highlight[1]:
-                        time.sleep(1.25)
+                        time.sleep(2)
                     else:
                         time.sleep(0.01)
                 print('\n')

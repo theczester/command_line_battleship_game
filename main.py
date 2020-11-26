@@ -31,14 +31,15 @@ def main():
                     is_col_wrong_num = True
             except:
                 is_col_wrong_num = True
-            if shoot_pose[0] not in LETTERS or is_col_wrong_num:
+            if shoot_pose[0].upper() not in LETTERS or is_col_wrong_num:
                 print('\n')
                 print('Please enter a valid postion (e.g A 9) !!!', end='\n'*3)
                 continue
             print('\n')
             shoot_pose = [LETTERS_TO_NUMBERS[shoot_pose[0].upper()]-1, int(shoot_pose[1])-1]
             if shoot_pose in enemy_board.get_valid_shoots():
-                if enemy_board.get_board()[shoot_pose[0]][shoot_pose[1]] == 1:
+                gotten_enemy_board = enemy_board.get_board()
+                if gotten_enemy_board[shoot_pose[0]][shoot_pose[1]] == 1:
                     print('You hit the enemy ship!', end="\n"*2)
                 else:
                     print('You missed the shoot!', end="\n"*2)
@@ -62,7 +63,8 @@ def main():
         player_board_shoot_highlight = enemy_shooting_pos
         player_board.shoot(enemy_shooting_pos[0], enemy_shooting_pos[1])
 
-        if player_board.get_board()[enemy_shooting_pos[0]][enemy_shooting_pos[1]] == 1:
+        gotten_player_board = player_board.get_board()
+        if gotten_player_board[enemy_shooting_pos[0]][enemy_shooting_pos[1]] == 1:
             print('Your ship has been hit!', end="\n"*3)
         else:
             print('Enemy missed the shoot!', end="\n"*3)
