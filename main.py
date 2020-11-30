@@ -12,10 +12,12 @@ def main():
         try:
             if enemy_board.count_ships() <= 0:
                 print('YOU WON THE GAME!!!')
-                print('With ', player_board.count_ships(), ' ships remaining.')
+                print('With ', player_board.count_ships(), ' occupied positions remaining.')
+                break
             if player_board.count_ships() <= 0:
                 print('YOU LOST THE GAME!!!')
-                print('With ', enemy_board.count_ships(), ' enemy ships remaining.')
+                print('With ', enemy_board.count_ships(), " enemy's occupied positions remaining.")
+                break
 
             player_board.draw('player_board', player_board_shoot_highlight)
             enemy_board.draw('enemy_board', enemy_board_shoot_highlight)
